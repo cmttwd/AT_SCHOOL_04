@@ -1,39 +1,36 @@
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import somepackage.Other;
 import somepackage.Some;
 import somethinggreen.Contract;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.lang.annotation.Annotation;
 
 public class Main {
     public static void main(String[] args) {
+        Some some = new Some("Secret_123");
+        some.setNoMoreSecrets(321);
 
-        HashMap<String,Object> map = new HashMap<>();
-map.put("key1", "value");
-map.put("key2", "value");
-map.put("key3", "value");
-map.put("key4", "value");
+        System.out.println(some.getSecret());
 
-        /*LinkedList list =
-                new LinkedList();
-        list.add("UIGIU");
-        list.add(new Object());
-        list.add(1);
+        System.out.println(some.getNoMoreSecrets());
+        System.out.println(some.noMoreSecrets);
 
-        for(int i=0; i<list.size();i++){
-            if(list.get(i).getClass().getSimpleName().equals("Object")){
-                System.out.println(list.get(i));
-            }
+        System.out.println(some);
+
+        System.out.println(some.count());
+
+        System.out.println(some.getДаТакТожеМожно());
+
+        System.out.println(some.getSecret(true));
+
+        some.soTellMeAboutInterfaces();
+
+        Other.saySomthing();
+
+        Contract.staticMethod("Static method Contract");
+
+        for (Annotation annotation: Some.class.getAnnotations()){
+            System.out.println(annotation.toString());
         }
 
-        System.out.println(list.get(0));*/
-        for (String s : map.keySet()) {
-            System.out.println(map.get(s));
-        }
-        Contract.staticMethod("");
-
-        System.out.println(map);
     }
 }
